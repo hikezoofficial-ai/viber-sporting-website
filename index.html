@@ -3,6 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  (function () {
+    var navEntry = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+    if (navEntry && navEntry.type === 'reload') {
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+      window.addEventListener('load', function () { window.scrollTo(0, 0); });
+      window.addEventListener('pageshow', function () { window.scrollTo(0, 0); });
+    }
+  })();
+</script>
 <title>Viber Sporting Company &mdash; Building Global Golf Brands in India</title>
 <meta name="description" content="Viber Sporting Company is an India-focused golf brand development and distribution company, building a curated portfolio of distinctive international golf brands.">
 <meta property="og:title" content="Viber Sporting Company">
